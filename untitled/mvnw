@@ -1,0 +1,18 @@
+#!/bin/sh
+# Maven Wrapper script - delegates to the locally cached Maven distribution
+
+set -e
+
+MAVEN_PROJECTBASEDIR="$(cd "$(dirname "$0")" && pwd)"
+export MAVEN_PROJECTBASEDIR
+
+# Use the locally cached Maven distribution
+MAVEN_HOME="$HOME/.m2/wrapper/dists"
+MAVEN_DIR=$(find "$MAVEN_HOME" -name "mvn" -path "*/bin/mvn" -type f 2>/dev/null | head -1)
+
+if [ -z "$MAVEN_DIR" ]; then
+  echo "Error: Maven not found. Please install Maven or run: brew install maven"
+  exit 1
+fi
+
+exec "$(dirname "$MAVEN_DIR")/mvn" "$@"
