@@ -6,6 +6,8 @@ import com.project.repo.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class StudentServiceGet implements IStudentGet {
@@ -22,4 +24,10 @@ public class StudentServiceGet implements IStudentGet {
     public Student getStudent(Integer id) {
         return repo.findById(id).orElseThrow();
     }
+
+    @Override
+    public Iterable<Student> getMultipleStudents(List<Integer> ids) {
+        return repo.findAllById(ids);
+    }
+
 }

@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -35,6 +37,7 @@ public class PractiseProject1Application {
             System.out.println("2 - Get Student");
             System.out.println("3 - Update Student");
             System.out.println("4 - Delete Student");
+            System.out.println("5- Get multiple students");
             System.out.println("5 - Quit");
 
             int choice = sc.nextInt();
@@ -92,8 +95,20 @@ public class PractiseProject1Application {
 
                 System.out.println(status);
             }
+            else if(choice == 5){
+                System.out.println("enter number of students to get");
+                int n = sc.nextInt();
+                System.out.println("Enter ids to get multiple students");
+                List<Integer> id = new ArrayList<>();
+                for(int i=0; i<n; i++){
+                    id.add(sc.nextInt());
+                }
 
-            else if (choice == 5) {
+                getService.getMultipleStudents(id).forEach(v-> System.out.println(v));
+                break;
+            }
+
+            else if (choice == 6) {
 
                 System.out.println("Exiting application...");
                 break;
