@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class SpringDataJpa2Application {
+public class SpringDataJpa3Application {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext container = SpringApplication.run(SpringDataJpa2Application.class, args);
+        ConfigurableApplicationContext container = SpringApplication.run(SpringDataJpa3Application.class, args);
         VaccineService service = container.getBean(VaccineService.class);
 
        // service.fetchDetailsBySorting(true,"vaccineName","vaccineCompany").forEach(System.out::println);
